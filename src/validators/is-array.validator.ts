@@ -1,4 +1,3 @@
-
 /**
  * Checks if the value is an array
  * @param {unknown} value The value to check
