@@ -1,4 +1,3 @@
-
 /**
  * Checks if the value is a bigint
  * @param {unknown} value The value to check

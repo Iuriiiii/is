@@ -1,4 +1,3 @@
-
 import { isBoolean } from "./is-boolean.validator.ts";
 import { isInfinity } from "./is-infinity.validator.ts";
 import { isNull } from "./is-null.validator.ts";

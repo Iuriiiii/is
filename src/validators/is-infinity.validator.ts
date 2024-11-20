@@ -1,4 +1,3 @@
-
 import { isNumber } from "./is-number.validator.ts";
 
 export function isInfinity(value: unknown): value is number {
