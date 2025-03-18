@@ -1,6 +1,6 @@
 {
   "name": "@online/is",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "tasks": {},
   "exports": "./mod.ts",
   "imports": {

@@ -17,3 +17,4 @@ export * from "./is-error.validator.ts";
 export * from "./is-symbol.validator.ts";
 export * from "./is-bigint.validator.ts";
 export * from "./is-float.validator.ts";
+export * from "./is-constructor.validator.ts";
