@@ -1,5 +1,12 @@
 import { assertEquals } from "@std/assert";
-import { isBigInt, isClassInstance, isConstructor, isPlainFunction, isPlainObject, isArray } from "../src/validators/mod.ts";
+import {
+  isArray,
+  isBigInt,
+  isClassInstance,
+  isConstructor,
+  isPlainFunction,
+  isPlainObject,
+} from "../src/validators/mod.ts";
 
 // Tests para isBigInt
 Deno.test("isBigInt - debe retornar true para valores BigInt", () => {
@@ -17,12 +24,12 @@ Deno.test("isBigInt - debe retornar false para valores que no son BigInt", () =>
   assertEquals(isBigInt(undefined), false);
   assertEquals(isBigInt({}), false);
   assertEquals(isBigInt([]), false);
-  assertEquals(isBigInt(() => { }), false);
+  assertEquals(isBigInt(() => {}), false);
 });
 
 // Tests para isClassInstance
-class TestClass { }
-class AnotherTestClass extends TestClass { }
+class TestClass {}
+class AnotherTestClass extends TestClass {}
 
 Deno.test("isClassInstance - debe retornar true para instancias de clases", () => {
   assertEquals(isClassInstance(new TestClass()), true);
@@ -37,7 +44,7 @@ Deno.test("isClassInstance - debe retornar false para objetos planos y otros val
   assertEquals(isClassInstance({}), false);
   assertEquals(isClassInstance(Object.create(null)), false);
   assertEquals(isClassInstance(TestClass), false);
-  assertEquals(isClassInstance(() => { }), false);
+  assertEquals(isClassInstance(() => {}), false);
   assertEquals(isClassInstance(1), false);
   assertEquals(isClassInstance("string"), false);
   assertEquals(isClassInstance(null), false);
@@ -57,8 +64,8 @@ Deno.test("isConstructor - debe retornar true para constructores de clase", () =
 Deno.test("isConstructor - debe retornar false para no constructores", () => {
   assertEquals(isConstructor({}), false);
   assertEquals(isConstructor(new TestClass()), false);
-  assertEquals(isConstructor(() => { }), false);
-  assertEquals(isConstructor(function () { }), false);
+  assertEquals(isConstructor(() => {}), false);
+  assertEquals(isConstructor(function () {}), false);
   assertEquals(isConstructor(1), false);
   assertEquals(isConstructor("string"), false);
   assertEquals(isConstructor(null), false);
@@ -67,9 +74,9 @@ Deno.test("isConstructor - debe retornar false para no constructores", () => {
 
 // Tests para isPlainFunction
 Deno.test("isPlainFunction - debe retornar true para funciones planas", () => {
-  assertEquals(isPlainFunction(function () { }), true);
-  assertEquals(isPlainFunction(() => { }), true);
-  assertEquals(isPlainFunction(function named() { }), true);
+  assertEquals(isPlainFunction(function () {}), true);
+  assertEquals(isPlainFunction(() => {}), true);
+  assertEquals(isPlainFunction(function named() {}), true);
 });
 
 Deno.test("isPlainFunction - debe retornar false para constructores y otros valores", () => {
@@ -104,6 +111,7 @@ Deno.test("isPlainObject - debe retornar false para instancias de clase y otros 
 Deno.test("isArray - debe retornar true para arrays", () => {
   assertEquals(isArray([]), true);
   assertEquals(isArray([1, 2, 3]), true);
+  // deno-lint-ignore no-array-constructor
   assertEquals(isArray(new Array()), true);
   assertEquals(isArray(Array.of(1, 2, 3)), true);
 });
@@ -115,7 +123,7 @@ Deno.test("isArray - debe retornar false para no arrays", () => {
   assertEquals(isArray(true), false);
   assertEquals(isArray(null), false);
   assertEquals(isArray(undefined), false);
-  assertEquals(isArray(() => { }), false);
+  assertEquals(isArray(() => {}), false);
   assertEquals(isArray(new Map()), false);
   assertEquals(isArray(new Set()), false);
 });
