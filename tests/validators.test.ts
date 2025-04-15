@@ -111,6 +111,7 @@ Deno.test("isPlainObject - debe retornar false para instancias de clase y otros 
 Deno.test("isArray - debe retornar true para arrays", () => {
   assertEquals(isArray([]), true);
   assertEquals(isArray([1, 2, 3]), true);
+  // deno-lint-ignore no-array-constructor
   assertEquals(isArray(new Array()), true);
   assertEquals(isArray(Array.of(1, 2, 3)), true);
 });
